@@ -36,6 +36,8 @@ def calculate():
 
     elif operation == '/':
         result = number_1 / number_2
+        if result == int(result):
+            result = int(result)
         print('{} / {} = '.format(number_1, number_2), end="")
         print(result)
 
