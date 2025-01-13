@@ -14,7 +14,7 @@ def calculate():
     if number_1 == int(number_1):
         number_1 = int(number_1)
 
-    operation = input('''
+    operation = input("""
     Please type in the math operation you would like to complete:
     +: addition
     -: subtraction
@@ -23,45 +23,45 @@ def calculate():
     **: power
     %: modulo
     //: floor division
-    ''')
+    """)
 
     number_2 = int(input("Please enter the second number: "))
     if number_2 == int(number_2):
         number_2 = int(number_2)
 
-    if operation == '+':
+    if operation == "+":
         result = number_1 + number_2
-        print('{} + {} = '.format(number_1, number_2), end="")
+        print("{} + {} = ".format(number_1, number_2), end="")
         print(result)
 
-    elif operation == '-':
+    elif operation == "-":
         result = number_1 - number_2
-        print('{} - {} = '.format(number_1, number_2), end="")
+        print("{} - {} = ".format(number_1, number_2), end="")
         print(result)
 
-    elif operation == '*':
+    elif operation == "*":
         result = number_1 * number_2
-        print('{} * {} = '.format(number_1, number_2), end="")
+        print("{} * {} = ".format(number_1, number_2), end="")
         print(result)
 
-    elif operation == '/':
+    elif operation == "/":
         result = number_1 / number_2
-        print('{} / {} = '.format(number_1, number_2), end="")
+        print("{} / {} = ".format(number_1, number_2), end="")
         print(result)
 
-    elif operation == '**':
+    elif operation == "**":
         result = number_1 ** number_2
-        print('{} ** {} = '.format(number_1, number_2), end="")
+        print("{} ** {} = ".format(number_1, number_2), end="")
         print(result)
     
-    elif operation == '%':
+    elif operation == "%":
         result = number_1 % number_2
-        print('{} % {} = '.format(number_1, number_2), end="")
+        print("{} % {} = ".format(number_1, number_2), end="")
         print(result)
 
-    elif operation == '//':
+    elif operation == "//":
         result = number_1 // number_2
-        print('{} % {} = '.format(number_1, number_2), end="")
+        print("{} % {} = ".format(number_1, number_2), end="")
         print(result)
     
     else:
@@ -69,15 +69,15 @@ def calculate():
 
 
 def again():
-    calc_again = input('''
+    calc_again = input("""
 Do you want to calculate again?
 Please type Y for YES or N for NO.
-''')
+""")
 
-    if calc_again.upper() == 'Y':
+    if calc_again.upper() == "Y":
         calculate()
         again()
-    elif calc_again.upper() == 'N':
+    elif calc_again.upper() == "N":
         print("See you later.")
     else:
         again()
