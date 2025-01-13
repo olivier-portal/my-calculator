@@ -66,10 +66,12 @@ Please type Y for YES or N for NO.
 
     if calc_again.upper() == 'Y':
         calculate()
+        again()
     elif calc_again.upper() == 'N':
         print('See you later.')
     else:
         again()
+
 
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it called from another program.
     calculate()
