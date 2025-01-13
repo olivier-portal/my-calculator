@@ -1,11 +1,34 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 13/01/2025 15h03
+Date : 13/01/2025 16h41
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
 Output : Details of the operations executed.
 """
+
+
+def number_input():
+    """
+    Function use to input a number.
+    :return: The number.
+    """
+
+    test = False
+
+    while not test:
+        number = input("Enter your number: ")
+        try:
+            number = int(number)
+            test = True
+        except ValueError:
+            try:
+                number = float(number)
+                test = True
+            except ValueError:
+                print("Not a number!")
+
+    return number
 
 
 def calculate():
@@ -84,5 +107,8 @@ Please type Y for YES or N for NO.
 
 
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it called from another program.
+    nb = number_input()
+    print(nb)
+
     calculate()
     again()
