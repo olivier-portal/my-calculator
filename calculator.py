@@ -1,6 +1,16 @@
+"""
+Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
+Date : 13/01/2025 15h03
+Aim of the program :
+    Execute a calculator.
+Inputs : Numbers used in the calculator operations.
+Output : Details of the operations executed.
+"""
+
+
 def calculate():
 
-    number_1 = float(input('Please enter the first number: '))
+    number_1 = float(input("Please enter the first number: "))
     if number_1 == int(number_1):
         number_1 = int(number_1)
 
@@ -15,7 +25,7 @@ def calculate():
     //: floor division
     ''')
 
-    number_2 = int(input('Please enter the second number: '))
+    number_2 = int(input("Please enter the second number: "))
     if number_2 == int(number_2):
         number_2 = int(number_2)
 
@@ -36,8 +46,6 @@ def calculate():
 
     elif operation == '/':
         result = number_1 / number_2
-        if result == int(result):
-            result = int(result)
         print('{} / {} = '.format(number_1, number_2), end="")
         print(result)
 
@@ -57,7 +65,7 @@ def calculate():
         print(result)
     
     else:
-        print('You have not typed a valid operator, please run the program again.')
+        print("You have not typed a valid operator, please run the program again.")
 
 
 def again():
@@ -70,7 +78,7 @@ Please type Y for YES or N for NO.
         calculate()
         again()
     elif calc_again.upper() == 'N':
-        print('See you later.')
+        print("See you later.")
     else:
         again()
 
