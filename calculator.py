@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 13/01/2025 16h41
+Date : 14/01/2025 09h25
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
@@ -33,9 +33,7 @@ def number_input():
 
 def calculate():
 
-    number_1 = float(input("Please enter the first number: "))
-    if number_1 == int(number_1):
-        number_1 = int(number_1)
+    number_1 = number_input()
 
     operation = input("""
     Please type in the math operation you would like to complete:
@@ -44,13 +42,11 @@ def calculate():
     *: multiplication
     /: division
     **: power
-    %: modulo
+    %: modulo (remainder of division)
     //: floor division
     """)
 
-    number_2 = int(input("Please enter the second number: "))
-    if number_2 == int(number_2):
-        number_2 = int(number_2)
+    number_2 = number_input()
 
     if operation == "+":
         result = number_1 + number_2
@@ -69,6 +65,8 @@ def calculate():
 
     elif operation == "/":
         result = number_1 / number_2
+        if result == int(result):
+            result = int(result)
         print("{} / {} = ".format(number_1, number_2), end="")
         print(result)
 
@@ -107,8 +105,6 @@ Please type Y for YES or N for NO.
 
 
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it called from another program.
-    nb = number_input()
-    print(nb)
 
     calculate()
     again()
