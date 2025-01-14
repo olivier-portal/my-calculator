@@ -1,46 +1,36 @@
 from .get_number import get_number
 from .get_operator import get_operator
 
+
 def calculate():
+    """
+    Execute a calculator.
+    :return: Details of the operations executed.
+    """
     number_1 = get_number()
     operator = get_operator()
     number_2 = get_number()
-    if operator == "+":
-        result = number_1 + number_2
-        print("{} + {} = ".format(number_1, number_2), end="")
-        print(result)
 
-    elif operator == "-":
-        result = number_1 - number_2
-        print("{} - {} = ".format(number_1, number_2), end="")
-        print(result)
+    act = True
 
-    elif operator == "*":
-        result = number_1 * number_2
-        print("{} * {} = ".format(number_1, number_2), end="")
-        print(result)
-
-    elif operator == "/":
-        result = number_1 / number_2
-        if result == int(result):
-            result = int(result)
-        print("{} / {} = ".format(number_1, number_2), end="")
-        print(result)
-
+    if operator == "/" or operator == "//":
+        if number_2 == 0:
+            print("Divide by zero is not allowed!")
+            act = False
     elif operator == "**":
-        result = number_1 ** number_2
-        print("{} ** {} = ".format(number_1, number_2), end="")
-        print(result)
-    
-    elif operator == "%":
-        result = number_1 % number_2
-        print("{} % {} = ".format(number_1, number_2), end="")
-        print(result)
+        if isinstance(number_2, float):
+            print("Exponent must be an integer in power calculation.")
+            act = False
 
-    elif operator == "//":
-        result = number_1 // number_2
-        print("{} % {} = ".format(number_1, number_2), end="")
-        print(result)
-    
-    else:
-        print("You have not typed a valid operator, please run the program again.")
+    if act is True:
+        operation = {"+": number_1 + number_2, "-": number_1 - number_2, "*": number_1 * number_2,
+                     "/": number_1 / number_2,
+                     "//": number_1 // number_2, "%": number_1 % number_2, "**": number_1 ** number_2}
+
+        for k in operation.keys():
+            if k == operator:
+                result = operation[k]
+                if result == int(result):
+                    result = int(result)
+                print(f"{number_1} {k} {number_2} = ", end="")
+                print(result)

@@ -1,5 +1,9 @@
 def get_operator():
-    operation = input("""
+    """
+    Function use to input an operator.
+    :return: An operator.
+    """
+    operator = input("""
     Please type in the math operation you would like to complete:
     +: addition
     -: subtraction
@@ -10,5 +14,5 @@ def get_operator():
     //: floor division
     """)
     
-    return operation
+    return operator
         
