@@ -2,12 +2,16 @@ from .get_number import get_number
 from .get_operator import get_operator
 
 
-def calculate():
+def calculate(result=None):
     """
-    Execute a calculator.
-    :return: Details of the operations executed.
+    Function used to perform the calculation based on the inputs.
+    :return: A tuples of the inputs and the result of the operation.
     """
-    number_1 = get_number()
+    if not result:
+        number_1 = get_number()
+    else:
+        number_1 = result
+
     operator = get_operator()
     number_2 = get_number()
 
@@ -34,3 +38,5 @@ def calculate():
                     result = int(result)
                 print(f"{number_1} {k} {number_2} = ", end="")
                 print(result)
+
+    return number_1, operator, number_2, result

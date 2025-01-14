@@ -1,3 +1,4 @@
+
 def get_number():
     """
     Function use to input a number.
