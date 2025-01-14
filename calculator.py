@@ -50,39 +50,39 @@ def calculate():
 
     if operation == "+":
         result = number_1 + number_2
-        print("{} + {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} + {number_2} = ", end="")
         print(result)
 
     elif operation == "-":
         result = number_1 - number_2
-        print("{} - {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} - {number_2} = ", end="")
         print(result)
 
     elif operation == "*":
         result = number_1 * number_2
-        print("{} * {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} * {number_2} = ", end="")
         print(result)
 
     elif operation == "/":
         result = number_1 / number_2
         if result == int(result):
             result = int(result)
-        print("{} / {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} / {number_2} = ", end="")
         print(result)
 
     elif operation == "**":
         result = number_1 ** number_2
-        print("{} ** {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} ** {number_2} = ", end="")
         print(result)
     
     elif operation == "%":
         result = number_1 % number_2
-        print("{} % {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} % {number_2} = ", end="")
         print(result)
 
     elif operation == "//":
         result = number_1 // number_2
-        print("{} % {} = ".format(number_1, number_2), end="")
+        print(f"{number_1} // {number_2} = ", end="")
         print(result)
     
     else:
