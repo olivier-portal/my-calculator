@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 14/01/2025 09h25
+Date : 14/01/2025 12h54
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
@@ -32,10 +32,11 @@ def number_input():
 
 
 def calculate():
+    act = True
 
     number_1 = number_input()
 
-    operation = input("""
+    operator = input("""
     Please type in the math operation you would like to complete:
     +: addition
     -: subtraction
@@ -48,45 +49,26 @@ def calculate():
 
     number_2 = number_input()
 
-    if operation == "+":
-        result = number_1 + number_2
-        print(f"{number_1} + {number_2} = ", end="")
-        print(result)
+    if operator == "/" or operator == "//":
+        if number_2 == 0:
+            print("Divide by zero is not allowed!")
+            act = False
+    elif operator == "**":
+        if isinstance(number_2, float):
+            print("Exponent must be an integer in power calculation.")
+            act = False
 
-    elif operation == "-":
-        result = number_1 - number_2
-        print(f"{number_1} - {number_2} = ", end="")
-        print(result)
+    if act is True:
+        operation = {"+": number_1 + number_2, "-": number_1 - number_2, "*": number_1 * number_2, "/": number_1 / number_2,
+                     "//": number_1 // number_2, "%": number_1 % number_2, "**": number_1 ** number_2}
 
-    elif operation == "*":
-        result = number_1 * number_2
-        print(f"{number_1} * {number_2} = ", end="")
-        print(result)
-
-    elif operation == "/":
-        result = number_1 / number_2
-        if result == int(result):
-            result = int(result)
-        print(f"{number_1} / {number_2} = ", end="")
-        print(result)
-
-    elif operation == "**":
-        result = number_1 ** number_2
-        print(f"{number_1} ** {number_2} = ", end="")
-        print(result)
-    
-    elif operation == "%":
-        result = number_1 % number_2
-        print(f"{number_1} % {number_2} = ", end="")
-        print(result)
-
-    elif operation == "//":
-        result = number_1 // number_2
-        print(f"{number_1} // {number_2} = ", end="")
-        print(result)
-    
-    else:
-        print("You have not typed a valid operator, please run the program again.")
+        for k in operation.keys():
+            if k == operator:
+                result = operation[k]
+                if result == int(result):
+                    result = int(result)
+                print(f"{number_1} {k} {number_2} = ", end="")
+                print(result)
 
 
 def again():
