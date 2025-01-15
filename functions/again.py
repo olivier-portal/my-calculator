@@ -1,5 +1,8 @@
 from .calculate import calculate
 from .display_history import display_history
+from .write_json import write_json
+
+FILE_PATH = "./json_history.json"
 
 
 def again(history):
@@ -15,6 +18,7 @@ def again(history):
     match user_choice:
         case "1":
             history.append(calculate())
+            write_json(history, FILE_PATH)
             again(history)
 
         case "2":
@@ -22,6 +26,7 @@ def again(history):
             result = result[3]
             print(f"result: {result}\n")
             history.append(calculate(result))
+            write_json(history, FILE_PATH)
             again(history)
 
         case "3":
