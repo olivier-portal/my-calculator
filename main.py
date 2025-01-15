@@ -10,7 +10,7 @@ Output : Details of the operations executed.
 from functions.again import again
 from functions.calculate import calculate
 from functions.read_json import read_json
-import json
+from functions.write_json import write_json
 
 FILE_PATH = "./json_history.json"
 
@@ -19,7 +19,10 @@ def main():
     Main function of the calculator.
     :return: Details of the operations executed.
     """
-    operation_history = [calculate()]
+    
+    operation_history = read_json(FILE_PATH)
+    calculate()
+    write_json(operation_history, FILE_PATH)
     again(operation_history)
     
     

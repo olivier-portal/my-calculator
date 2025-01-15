@@ -1,1 +1,1 @@
-[{"operation_tuple": [1, "+", 5, 6]}, {"operation_tuple": [6, "-", 3, 3]}, {"operation_tuple": [3, "*", 8, 24]}]
+[{"operation_tuple": {"operation_tuple": [1, "+", 5, 6]}}, {"operation_tuple": {"operation_tuple": [6, "-", 3, 3]}}, {"operation_tuple": {"operation_tuple": [3, "*", 8, 24]}}, {"operation_tuple": [6, "-", 2, 4]}, {"operation_tuple": [4, "**", 5, 1024]}]

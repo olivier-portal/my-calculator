@@ -41,4 +41,4 @@ def calculate(result="None"):
                 print(f"{number_1} {k} {number_2} = ", end="")
                 print(result)
 
-    return number_1, operator, number_2, result
+    return [number_1, operator, number_2, result]
