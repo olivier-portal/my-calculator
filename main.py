@@ -19,9 +19,7 @@ def main():
     Main function of the calculator.
     :return: Details of the operations executed.
     """
-    operation_history = read_json(FILE_PATH)
-    add_in_json = [calculate()]
-    operation_history = json.dumps(add_in_json)
+    operation_history = [calculate()]
     again(operation_history)
     
     
