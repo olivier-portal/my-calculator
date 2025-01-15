@@ -7,6 +7,7 @@ def calculate(result=None):
     Function used to perform the calculation based on the inputs.
     :return: A tuples of the inputs and the result of the operation.
     """
+
     if not result:
         number_1 = get_number()
     else:

@@ -16,11 +16,11 @@ def main():
     Main function of the calculator.
     :return: Details of the operations executed.
     """
-    operation_history.append(calculate())
-    again(operation_history)
+    history.append(calculate())
+    again(history)
     
     
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
-    operation_history = []
+    history = []
 
     main()

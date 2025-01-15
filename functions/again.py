@@ -14,14 +14,14 @@ P to start a new calculation using the previous result
 """)
 
     if calc_again.upper() == "Y":
-        calculate()
+        history.append(calculate())
         again(history)
 
     elif calc_again.upper() == "P":
         result = history[-1]
         result = result[3]
         print(f"result: {result}")
-        calculate(result)
+        history.append(calculate(result))
         again(history)
 
     elif calc_again.upper() == "N":
