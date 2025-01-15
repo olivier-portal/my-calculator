@@ -9,14 +9,19 @@ Output : Details of the operations executed.
 
 from functions.again import again
 from functions.calculate import calculate
+from functions.read_json import read_json
+import json
 
+FILE_PATH = "./json_history.json"
 
 def main():
     """
     Main function of the calculator.
     :return: Details of the operations executed.
     """
-    operation_history = [calculate()]
+    operation_history = read_json(FILE_PATH)
+    add_in_json = [calculate()]
+    operation_history = json.dumps(add_in_json)
     again(operation_history)
     
     
