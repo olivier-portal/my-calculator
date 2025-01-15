@@ -2,20 +2,21 @@ from .get_number import get_number
 from .get_operator import get_operator
 
 
-def calculate(result=None):
+def calculate(result="None"):
     """
     Function used to perform the calculation based on the inputs.
+    :result: A result chosen from history.
     :return: A tuples of the inputs and the result of the operation.
     """
-
-    if not result:
+    if result == "None":
         number_1 = get_number()
     else:
         number_1 = result
 
     operator = get_operator()
-    number_2 = get_number()
 
+    number_2 = get_number()
+    print()
     act = True
 
     if operator == "/" or operator == "//":

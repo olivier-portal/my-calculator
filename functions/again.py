@@ -7,27 +7,27 @@ def again(history):
     Function used to provide options to the user to exit, enter a new operation with or without the previous result.
     :return: ∅
     """
-    calc_again = input("""
-Do you want to calculate again?
-Please type Y for YES or N for NO,
-P to start a new calculation using the previous result
-""")
+    print("\nDo you want to calculate again?\nChoose your option:\n1: Start a new calculation\n"
+          "2: Start a new calculation using the previous result\n3: Show the history and exit\n")
 
-    if calc_again.upper() == "Y":
-        history.append(calculate())
-        again(history)
+    user_choice = input("Enter your choice: ")
 
-    elif calc_again.upper() == "P":
-        result = history[-1]
-        result = result[3]
-        print(f"result: {result}")
-        history.append(calculate(result))
-        again(history)
+    match user_choice:
+        case "1":
+            history.append(calculate())
+            again(history)
 
-    elif calc_again.upper() == "N":
-        display_history(history)
-        print("See you later.")
+        case "2":
+            result = history[-1]
+            result = result[3]
+            print(f"result: {result}\n")
+            history.append(calculate(result))
+            again(history)
 
-    else:
-        print("Too BAD!!")
-        again(history)
+        case "3":
+            display_history(history)
+            print("\nSee you later.")
+
+        case _:
+            print("Wrong input!\nToo BAD!!")
+            again(history)
