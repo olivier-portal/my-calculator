@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 14/01/2025 14h39
+Date : 15/01/2025 11h37
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
@@ -16,11 +16,10 @@ def main():
     Main function of the calculator.
     :return: Details of the operations executed.
     """
-    operation_history.append(calculate())
+    operation_history = [calculate()]
     again(operation_history)
     
     
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
-    operation_history = []
 
     main()
