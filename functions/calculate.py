@@ -15,30 +15,33 @@ def calculate(result="None"):
 
     operator = get_operator()
 
-    number_2 = get_number()
-    print()
-    act = True
+    work = False
+    while work is False:
+        number_2 = get_number()
+        print()
+        work = True
 
-    if operator == "/" or operator == "//":
-        if number_2 == 0:
-            print("Divide by zero is not allowed!")
-            act = False
-    elif operator == "**":
-        if isinstance(number_2, float):
-            print("Exponent must be an integer in power calculation.")
-            act = False
+        if operator == "**":
+            if isinstance(number_2, float):
+                print("Exponent must be an integer in power calculation.")
+                work = False
 
-    if act is True:
-        operation = {"+": number_1 + number_2, "-": number_1 - number_2, "*": number_1 * number_2,
-                     "/": number_1 / number_2,
-                     "//": number_1 // number_2, "%": number_1 % number_2, "**": number_1 ** number_2}
+        if work is True:
+            try:
+                operation = {"+": number_1 + number_2, "-": number_1 - number_2, "*": number_1 * number_2,
+                             "/": number_1 / number_2, "//": number_1 // number_2, "%": number_1 % number_2,
+                             "**": number_1 ** number_2}
 
-        for k in operation.keys():
-            if k == operator:
-                result = operation[k]
-                if result == int(result):
-                    result = int(result)
-                print(f"{number_1} {k} {number_2} = ", end="")
-                print(result)
+                for k in operation.keys():
+                    if k == operator:
+                        result = operation[k]
+                        if result == int(result):
+                            result = int(result)
+                        print(f"{number_1} {k} {number_2} = ", end="")
+                        print(result)
+
+            except ZeroDivisionError:
+                print("Divide by zero is not allowed!")
+                work = False
 
     return number_1, operator, number_2, result

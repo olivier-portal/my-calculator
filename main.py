@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 15/01/2025 11h37
+Date : 15/01/2025 17h04
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
