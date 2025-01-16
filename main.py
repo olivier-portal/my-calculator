@@ -22,7 +22,7 @@ def print_main_options():
     :return: ∅
     """
     print("\nChoose your option:\n1: Start a new calculation\n"
-          "2: Start a new calculation using the previous result\n3: Save the history\n4: Clear the history\n5: Show the history\n6: Exit program\n")
+          "2: Start a new calculation using the previous result\n3: Clear the history\n4: Show the history\n5: Exit program\n")
     
 
 def main(history):
@@ -54,24 +54,18 @@ def main(history):
             main(history)
 
         case "3":
-            # save_history(history)
-            print("History saved. Current history:\n")
-            display_history(history)
-            main(history)
-
-        case "4":
             # clear_history(history)
             print("History cleared. Current history:\n")
             display_history(history)
             main(history)
 
-        case "5":
+        case "4":
             print("Current history:\n")
             write_json(history, FILE_PATH)
             display_history(history)
             main(history)
         
-        case "6":
+        case "5":
            print("Goodbye.\n")
            exit()
 
