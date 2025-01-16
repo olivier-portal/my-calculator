@@ -42,7 +42,7 @@ def main(history):
             if history != []:
                 result = history[-1][3]
                 print(f"result: {result}\n")
-                print(history)
+                print(f"{history}\n")
                 if history[-1][3] != "None":
                     history.append(calculate(result))
                     write_json(history, FILE_PATH)
@@ -81,7 +81,6 @@ def main(history):
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
     operation_history = read_json(FILE_PATH)
-    operation_history.append(calculate())
-    write_json(operation_history, FILE_PATH)
+
     print_main_options()
     main(operation_history)
