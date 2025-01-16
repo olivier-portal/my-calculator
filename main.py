@@ -22,7 +22,7 @@ def main(history):
     Main function used to provide options to the user to exit, enter a new operation with or without the previous result.
     :return: ∅
     """
-    user_choice = input("Enter your choice ('h' for help): ")
+    user_choice = input("\nEnter your choice ('h' for help): ")
 
     match user_choice:
         case "1":
@@ -34,11 +34,9 @@ def main(history):
             if history != []:
                 result = history[-1][3]
                 print(f"result: {result}\n")
-                print(f"{history}\n")
                 if history[-1][3] != "None":
                     history.append(calculate(result))
                     write_json(history, FILE_PATH)
-                    print(history)
             else:
                 print("No stored results")
                 history.append(calculate())
@@ -46,15 +44,14 @@ def main(history):
             main(history)
 
         case "3":
-            history = []
-            clear_history()
-            print("History cleared. Current history:\n")
+            write_json(history, FILE_PATH)
             display_history(history)
             main(history)
 
         case "4":
-            print("Current history:\n")
-            write_json(history, FILE_PATH)
+            history = []
+            clear_history()
+            print("History cleared. Current history:\n")
             display_history(history)
             main(history)
         
