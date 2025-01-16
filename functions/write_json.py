@@ -1,6 +1,5 @@
 import json
 
-
 def write_json(history, FILE_PATH):
       list_of_dicts = [{'operation_tuple': item} for item in history]
       
