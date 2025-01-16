@@ -11,6 +11,10 @@ from functions.calculate import calculate
 from functions.display_history import display_history
 # from functions.clear_history import clear_history
 # from functions.save_history import save_history
+from functions.read_json import read_json
+from functions.write_json import write_json
+
+FILE_PATH = "./json_history.json"
 
 def print_main_options():
     """
@@ -31,6 +35,7 @@ def main(history):
     match user_choice:
         case "1":
             history.append(calculate())
+            write_json(history, FILE_PATH)
             main(history)
 
         case "2":
@@ -40,10 +45,12 @@ def main(history):
                 print(history)
                 if history[-1][3] != "None":
                     history.append(calculate(result))
+                    write_json(history, FILE_PATH)
                     print(history)
             else:
                 print("No stored results")
                 history.append(calculate())
+                write_json(history, FILE_PATH)
             main(history)
 
         case "3":
@@ -60,6 +67,7 @@ def main(history):
 
         case "5":
             print("Current history:\n")
+            write_json(history, FILE_PATH)
             display_history(history)
             main(history)
         
@@ -78,6 +86,8 @@ def main(history):
 
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
-    operation_history = []
+    operation_history = read_json(FILE_PATH)
+    operation_history.append(calculate())
+    write_json(operation_history, FILE_PATH)
     print_main_options()
     main(operation_history)
