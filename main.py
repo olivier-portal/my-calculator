@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 15/01/2025 17h04
+Date : 16/01/2025 14:40
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers used in the calculator operations.
@@ -12,17 +12,19 @@ from functions.display_history import display_history
 from functions.clear_history import clear_history
 from functions.read_json import read_json
 from functions.write_json import write_json
-from functions.print_main_options import print_main_options
+from functions.display_menu import display_menu
 
 FILE_PATH = "./json_history.json"
 
 
 def main(history):
     """
-    Main function used to provide options to the user to exit, enter a new operation with or without the previous result.
+    Main function used to provide options to the user to exit or enter a new operation,
+    with or without the previous result.
+    :param: history: A json file used to save operations history.
     :return: ∅
     """
-    user_choice = input("\nEnter your choice ('h' for help): ")
+    user_choice = input("\nEnter your choice (enter 'h' to display menu options): ")
 
     match user_choice:
         case "1":
@@ -54,13 +56,13 @@ def main(history):
             print("History cleared. Current history:\n")
             display_history(history)
             main(history)
-        
+
         case "5":
-           print("Goodbye.\n")
-           exit()
+            print("Goodbye.\n")
+            exit()
 
         case "h":
-            print_main_options()
+            display_menu()
             main(history)
 
         case _:
@@ -72,5 +74,5 @@ if __name__ == "__main__":  # The program will be run only if executed directly,
 
     operation_history = read_json(FILE_PATH)
 
-    print_main_options()
+    display_menu()
     main(operation_history)

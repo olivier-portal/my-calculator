@@ -3,7 +3,8 @@
 def display_history(history):
     """
     Function to display the history of operations.
-    :return: None
+    :param: history: A list of tuple each corresponding to an operation.
+    :return: ∅
     """
     if not history:
         print("No operations performed yet.")
