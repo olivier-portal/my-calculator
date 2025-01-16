@@ -75,8 +75,7 @@ def main(history):
             print("Wrong input!\nToo BAD!!")
             main(history)
 
-    
-    
+
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
     operation_history = []
