@@ -21,7 +21,7 @@ def main():
     """
     
     operation_history = read_json(FILE_PATH)
-    calculate()
+    operation_history.append(calculate())
     write_json(operation_history, FILE_PATH)
     again(operation_history)
     
