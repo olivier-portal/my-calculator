@@ -79,6 +79,6 @@ def main(history):
     
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
-        operation_history = []
-        print_main_options()
-        main(operation_history)
+    operation_history = []
+    print_main_options()
+    main(operation_history)
