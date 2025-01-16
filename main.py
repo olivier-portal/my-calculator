@@ -9,8 +9,7 @@ Output : Details of the operations executed.
 
 from functions.calculate import calculate
 from functions.display_history import display_history
-# from functions.clear_history import clear_history
-# from functions.save_history import save_history
+from functions.clear_history import clear_history
 from functions.read_json import read_json
 from functions.write_json import write_json
 from functions.print_main_options import print_main_options
@@ -47,7 +46,8 @@ def main(history):
             main(history)
 
         case "3":
-            # clear_history(history)
+            history = []
+            clear_history()
             print("History cleared. Current history:\n")
             display_history(history)
             main(history)
