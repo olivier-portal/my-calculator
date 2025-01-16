@@ -13,17 +13,10 @@ from functions.display_history import display_history
 # from functions.save_history import save_history
 from functions.read_json import read_json
 from functions.write_json import write_json
+from functions.print_main_options import print_main_options
 
 FILE_PATH = "./json_history.json"
 
-def print_main_options():
-    """
-    Show (print) the options of main() 
-    :return: ∅
-    """
-    print("\nChoose your option:\n1: Start a new calculation\n"
-          "2: Start a new calculation using the previous result\n3: Clear the history\n4: Show the history\n5: Exit program\n")
-    
 
 def main(history):
     """
