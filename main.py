@@ -48,14 +48,14 @@ def main(history, index):
             main(history, index)
 
         case "3":
-            write_json(history, FILE_PATH)
+            history = {}
+            clear_history()
+            print("History cleared. Current history:\n")
             # display_history(history)
             main(history, index)
 
         case "4":
-            history = {}
-            clear_history()
-            print("History cleared. Current history:\n")
+            write_json(history, FILE_PATH)
             # display_history(history)
             main(history, index)
 
