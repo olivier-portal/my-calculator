@@ -43,13 +43,13 @@ def main(history, index):
             if history != {}:
                 if len(history) > 0 and history[last_index] is not None:
                     last_index = int(last_index)
-                    index += 1
+                    last_value += 1
                     history.update([(last_index, calculate(result))])
                     write_json(history, FILE_PATH)
                 else:
                     print("No stored results")
-                    indice = 0
-                    history.update([(indice, calculate())])
+                    last_index = 0
+                    history.update([(last_index, calculate())])
                     write_json(history, FILE_PATH)
                 
             main(history, index)
