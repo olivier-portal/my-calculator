@@ -10,8 +10,8 @@ Output : Details of the operations executed.
 from functions.calculate import calculate
 from functions.display_history import display_history
 from functions.clear_history import clear_history
-from read_json import read_json
-from write_json import write_json
+from functions.read_json import read_json
+from functions.write_json import write_json
 from functions.display_menu import display_menu
 
 FILE_PATH = "./json_history.json"
