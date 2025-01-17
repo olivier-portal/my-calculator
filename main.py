@@ -35,7 +35,7 @@ def main(history, index):
             main(history, index)
 
         case "2":
-            if history != []:
+            if history != {}:
                 result = history[-1][3]
                 print(f"result: {result}\n")
                 if history[-1][3] != "None":
@@ -45,7 +45,7 @@ def main(history, index):
             else:
                 print("No stored results")
                 indice = 1
-                history.update([(str(indice), calculate())])
+                history.update([(indice, calculate())])
                 write_json(history, FILE_PATH)
             main(history, index)
 
@@ -79,7 +79,8 @@ if __name__ == "__main__":  # The program will be run only if executed directly,
     operation_history = read_json(FILE_PATH)
     print(operation_history)
     
-    last_index = 0
+    last_index = int(list(operation_history.keys())[-1])
+    print(last_index)
 
     print_main_options()
     main(operation_history, last_index)

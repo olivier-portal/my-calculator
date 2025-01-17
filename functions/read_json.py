@@ -9,5 +9,3 @@ def read_json(FILE_PATH):
             data = json.load(input_file)
             # return [normalize_item(entry) for entry in data]
             return data
-      
-print(read_json(FILE_PATH="json_history.json"))
