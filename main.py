@@ -35,18 +35,23 @@ def main(history, index):
             main(history, index)
 
         case "2":
+            last_index = list(history.keys())[-1]
+            last_value = list(history.values())[-1][3]
+            result = last_value
+            print(f"result: {result}\n")
+            
             if history != {}:
-                result = history[-1][3]
-                print(f"result: {result}\n")
-                if history[-1][3] != "None":
-                    indice = 1
+                if len(history) > 0 and history[last_index] is not None:
+                    last_index = int(last_index)
+                    index += 1
+                    history.update([(last_index, calculate(result))])
+                    write_json(history, FILE_PATH)
+                else:
+                    print("No stored results")
+                    indice = 0
                     history.update([(indice, calculate())])
                     write_json(history, FILE_PATH)
-            else:
-                print("No stored results")
-                indice = 1
-                history.update([(indice, calculate())])
-                write_json(history, FILE_PATH)
+                
             main(history, index)
 
         case "3":
