@@ -10,11 +10,9 @@ Output : Details of the operations executed.
 from functions.calculate import calculate
 from functions.display_history import display_history
 from functions.clear_history import clear_history
-from functions.read_json import read_json
-from functions.write_json import write_json
-from functions.print_main_options import print_main_options
-
-import json
+from r_json import read_json
+from w_json import write_json
+from functions.display_menu import display_menu
 
 FILE_PATH = "./json_history.json"
 
@@ -35,17 +33,17 @@ def main(history, index):
             main(history, index)
 
         case "2":
-            if history != []:
-                result = history[-1][3]
+            if history != {}:
+                result = history[index][3]
                 print(f"result: {result}\n")
-                if history[-1][3] != "None":
-                    indice = 1
-                    history.update([(indice, calculate())])
+                if history[index][3] != "None":
+                    index += 1
+                    history.update([(index, calculate(result))])
                     write_json(history, FILE_PATH)
             else:
                 print("No stored results")
-                indice = 1
-                history.update([(str(indice), calculate())])
+                index += 1
+                history.update([(index, calculate())])
                 write_json(history, FILE_PATH)
             main(history, index)
 
@@ -60,13 +58,13 @@ def main(history, index):
             print("History cleared. Current history:\n")
             # display_history(history)
             main(history, index)
-        
+
         case "5":
-           print("Goodbye.\n")
-           exit()
+            print("Goodbye.\n")
+            exit()
 
         case "h":
-            print_main_options()
+            display_menu()
             main(history, index)
 
         case _:
@@ -77,9 +75,8 @@ def main(history, index):
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
     operation_history = read_json(FILE_PATH)
-    print(operation_history)
-    
-    last_index = 0
 
-    print_main_options()
+    last_index = next(reversed(operation_history.keys()))
+
+    display_menu()
     main(operation_history, last_index)

@@ -44,4 +44,4 @@ def calculate(result="None"):
                 print("Divide by zero is not allowed!")
                 work = False
 
-    return number_1, operator, number_2, result
+    return [number_1, operator, number_2, result]
