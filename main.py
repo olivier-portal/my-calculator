@@ -47,19 +47,19 @@ def main(history, index):
                 indice = 1
                 history.update([(str(indice), calculate())])
                 write_json(history, FILE_PATH)
-            main(history)
+            main(history, index)
 
         case "3":
             write_json(history, FILE_PATH)
-            display_history(history)
-            main(history)
+            # display_history(history)
+            main(history, index)
 
         case "4":
             history = {}
             clear_history()
             print("History cleared. Current history:\n")
-            display_history(history)
-            main(history)
+            # display_history(history)
+            main(history, index)
         
         case "5":
            print("Goodbye.\n")
@@ -67,11 +67,11 @@ def main(history, index):
 
         case "h":
             print_main_options()
-            main(history)
+            main(history, index)
 
         case _:
             print("Wrong input!\nToo BAD!!")
-            main(history)
+            main(history, index)
 
 
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
