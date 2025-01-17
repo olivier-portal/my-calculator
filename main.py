@@ -41,7 +41,7 @@ def main(history, index):
             print(f"result: {result}\n")
             
             if history != {}:
-                if len(history) > 0 and history[last_index] is not None:
+                if history == {}:
                     last_index = int(last_index)
                     last_value += 1
                     history.update([(last_index, calculate(result))])
@@ -84,7 +84,11 @@ if __name__ == "__main__":  # The program will be run only if executed directly,
     operation_history = read_json(FILE_PATH)
     print(operation_history)
     
-    last_index = int(list(operation_history.keys())[-1])
+    if operation_history == {}:
+        last_index = 0
+    else:
+        last_index = int(list(operation_history.keys())[-1])
+        
     print(last_index)
 
     print_main_options()
