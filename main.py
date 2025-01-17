@@ -14,10 +14,12 @@ from functions.read_json import read_json
 from functions.write_json import write_json
 from functions.print_main_options import print_main_options
 
+import json
+
 FILE_PATH = "./json_history.json"
 
 
-def main(history):
+def main(history, index):
     """
     Main function used to provide options to the user to exit, enter a new operation with or without the previous result.
     :return: ∅
@@ -26,20 +28,24 @@ def main(history):
 
     match user_choice:
         case "1":
-            history.append(calculate())
+            index += 1
+            history.update([(index, calculate())])
+            print(history)
             write_json(history, FILE_PATH)
-            main(history)
+            main(history, index)
 
         case "2":
             if history != []:
                 result = history[-1][3]
                 print(f"result: {result}\n")
                 if history[-1][3] != "None":
-                    history.append(calculate(result))
+                    indice = 1
+                    history.update([(indice, calculate())])
                     write_json(history, FILE_PATH)
             else:
                 print("No stored results")
-                history.append(calculate())
+                indice = 1
+                history.update([(str(indice), calculate())])
                 write_json(history, FILE_PATH)
             main(history)
 
@@ -49,7 +55,7 @@ def main(history):
             main(history)
 
         case "4":
-            history = []
+            history = {}
             clear_history()
             print("History cleared. Current history:\n")
             display_history(history)
@@ -71,6 +77,9 @@ def main(history):
 if __name__ == "__main__":  # The program will be run only if executed directly, not if it is called by another program.
 
     operation_history = read_json(FILE_PATH)
+    print(operation_history)
+    
+    last_index = 0
 
     print_main_options()
-    main(operation_history)
+    main(operation_history, last_index)

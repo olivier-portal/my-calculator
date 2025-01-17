@@ -1,8 +1,10 @@
 import json
 
 def write_json(history, FILE_PATH):
-      list_of_dicts = [{'operation_tuple': item} for item in history]
-      
-      with open(FILE_PATH, 'w') as output_file:
-            json_line = json.dumps(list_of_dicts, indent=4)
-            output_file.write(json_line + "\n")
+      # Serializing json
+      json_object = json.dumps(history, indent=4)
+      # print(json_object)
+ 
+      # Writing to json_history.json
+      with open("./json_history.json", "w") as FILE_PATH:
+            FILE_PATH.write(json_object) 
