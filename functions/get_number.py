@@ -7,7 +7,7 @@ def get_number():
 
     test = False
 
-    while not test:
+    while not test:  # Loop that re-asks an input until it is not a number (integer or float).
         number = input("Enter your number: ")
         try:
             number = int(number)
@@ -17,6 +17,6 @@ def get_number():
                 number = float(number)
                 test = True
             except ValueError:
-                print("Not a number!")
+                print("\nNot a number!")
 
     return number

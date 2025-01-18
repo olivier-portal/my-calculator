@@ -19,7 +19,10 @@ FILE_PATH = "./json_history.json"
 
 def main(history, index):
     """
-    Main function used to provide options to the user to exit, enter a new operation with or without the previous result.
+    Main function used to provide options to the user to exit or enter a new operation,
+    with or without the previous result.
+    :param: history: A json file used to save operations history.
+    :param: index: The index of the last operation in json history.
     :return: ∅
     """
     user_choice = input("\nEnter your choice ('h' for help): ")
@@ -35,13 +38,13 @@ def main(history, index):
         case "2":
             if history != {}:
                 result = history[index][3]
-                print(f"result: {result}\n")
+                print(f"\nLast result: {result}")
                 if history[index][3] != "None":
                     index += 1
                     history.update([(index, calculate(result))])
                     write_json(history, FILE_PATH)
             else:
-                print("No stored results")
+                print("\nNo stored results!")
                 index += 1
                 history.update([(index, calculate())])
                 write_json(history, FILE_PATH)
