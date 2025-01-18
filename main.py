@@ -1,6 +1,6 @@
 """
 Authors : Lorenzo OTTAVIANI, Olivier PORTAL et Thibault CARON.
-Date : 18/01/2025 15h08
+Date : 18/01/2025 15h41
 Aim of the program :
     Execute a calculator.
 Inputs : Numbers and operators used in the calculator operations.
@@ -55,12 +55,12 @@ def main(history, index):
             history = {}
             clear_history()
             print("History cleared! Current history:\n")
-            # display_history(history)
+            display_history(history)
             main(history, index)
 
         case "4":  # Display the history.
             write_json(history, FILE_PATH)
-            # display_history(history)
+            display_history(history)
             main(history, index)
 
         case "5":  # Exit the program.
