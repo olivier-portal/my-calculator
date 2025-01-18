@@ -1,8 +1,7 @@
-
-
 def display_history(history):
     """
     Function to display the history of operations.
+    :param: history: The dictionary of operations history.
     :return: None
     """
     if not history:
