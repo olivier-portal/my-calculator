@@ -1,15 +1,14 @@
 import json
 
 
-def write_json(history, file_path):
+def write_json(history, file):
     """
-    Function used to write in the json file.
-    :param history: A list of tuple each corresponding to an operation.
-    :param file_path: File path of json file.
+    Function used to write the operations history in the json file.
+    :param history: The dictionary of operations history.
+    :param file: File path of json file.
     :return: ∅
     """
-    list_of_dicts = [{'operation_tuple': item} for item in history]
+    json_object = json.dumps(history, indent=4)  # Serializing in a json format.
 
-    with open(file_path, 'w') as output_file:
-        json_line = json.dumps(list_of_dicts, indent=4)
-        output_file.write(json_line + "\n")
+    with open("./json_history.json", "w") as file:  # Write th in json_history.json
+        file.write(json_object)

@@ -8,7 +8,7 @@ def get_operator():
 
     user_operator = input("Enter your operator: ")
 
-    match user_operator:
+    match user_operator:  # Checks if the operator is one of those admitted.
         case "+":
             operator = "+"
         case "-":
@@ -27,9 +27,9 @@ def get_operator():
             operator = "//"
         case "%":
             operator = "%"
-        case _:
-            print(display_operator)
-            operator = get_operator()
+        case _:  # Case of a wrong input.
+            print(display_operator)  # Display a help with the list of all corrects operators.
+            operator = get_operator()  # Re-asks an input until it is not a correct operator.
 
     return operator
         
