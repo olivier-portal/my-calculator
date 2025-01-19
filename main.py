@@ -41,29 +41,28 @@ def main(history, index):
             print(f"result: {result}\n")
             
             if history != {}:
-                if history == {}:
-                    last_index = int(last_index)
-                    last_value += 1
-                    history.update([(last_index, calculate(result))])
-                    write_json(history, FILE_PATH)
-                else:
-                    print("No stored results")
-                    last_index = 0
-                    history.update([(last_index, calculate())])
-                    write_json(history, FILE_PATH)
+                last_index = int(last_index)
+                last_value += 1
+                history.update([(last_index, calculate(result))])
+                write_json(history, FILE_PATH)
+            else:
+                print("No stored results")
+                last_index = 0
+                history.update([(last_index, calculate())])
+                write_json(history, FILE_PATH)
                 
             main(history, index)
 
         case "3":
             write_json(history, FILE_PATH)
-            # display_history(history)
+            display_history(history)
             main(history, index)
 
         case "4":
             history = {}
             clear_history()
             print("History cleared. Current history:\n")
-            # display_history(history)
+            display_history(history)
             main(history, index)
         
         case "5":
