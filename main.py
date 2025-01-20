@@ -32,7 +32,7 @@ def main(history, index):
     match user_choice:
         case "1":  # Perform a new operation.
             index += 1
-            history.update([(index, calculate())])  # Add the last operation to the dictionary of operations history.
+            history[index] = calculate()  # Add the last operation to the dictionary of operations history.
             write_json(history, FILE_PATH)  # Update history saved in the json file.
             main(history, index)  # Rerun the choice of menu options again.
 
@@ -42,12 +42,12 @@ def main(history, index):
                 print(f"\nLast result: {result}")  # Print the last result.
                 if history[index][3] != "None":
                     index += 1
-                    history.update([(index, calculate(result))])
+                    history[index] = calculate(result)
                     write_json(history, FILE_PATH)
             else:  # Case of an empty history, perform a new operation, like in case 1.
                 print("\nNo stored results!")
                 index += 1
-                history.update([(index, calculate())])
+                history[index] = calculate()
                 write_json(history, FILE_PATH)
             main(history, index)
 
