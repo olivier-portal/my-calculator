@@ -36,7 +36,7 @@ def main(history, index):
             write_json(history, FILE_PATH)  # Update history saved in the json file.
             main(history, index)  # Rerun the choice of menu options again.
 
-        case "2": # Perform an operation using the last result as first term
+        case "2":  # Perform an operation using the last result as first term
             if history != {}:  # Check if operations history is empty.
                 result = history[index][3]
                 print(f"\nLast result: {result}")  # Print the last result.
@@ -54,6 +54,7 @@ def main(history, index):
         case "3":  # Clear the history.
             history = {}
             clear_history()
+            index = 0
             print("History cleared! Current history:\n")
             display_history(history)
             main(history, index)
